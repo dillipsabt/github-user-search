@@ -1,0 +1,18 @@
+<div class="githubUser">
+  <h1>GitHub User Search</h1>
+  <input class="search" type="text" [(ngModel)]="searchInput" (input)="search()" placeholder="Search for users...">
+
+  <div class="container" *ngIf="searchInput && searchUsers.length > 0">
+    <div *ngFor="let user of searchUsers" class="user-card">
+        <img [src]="user.avatar_url" alt="Avatar" class="user-avatar">
+        <h3 class="user-name"><a [href]="user.html_url" target="_blank">{{ user.login }}</a></h3>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="!searchInput && defaultUsers.length > 0">
+    <div class="user-card" *ngFor="let user of defaultUsers">
+      <img [src]="user.avatar_url" alt="Avatar" class="user-avatar">
+        <h3 class="user-name"><a [href]="user.html_url" target="_blank">{{ user.login }}</a></h3>
+    </div>
+  </div>
+</div>
