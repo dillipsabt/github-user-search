@@ -4,7 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { UserSearchComponent } from './user-search/user-search.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MaterialExampleModule } from './material.module';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -13,10 +16,15 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
-    FormsModule
+    MatNativeDateModule,
+    MaterialExampleModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
